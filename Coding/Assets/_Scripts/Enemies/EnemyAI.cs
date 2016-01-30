@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     //public Transform[] patrolWayPoints;                     // An array of transforms for the patrol route.
 	public EnemyState CurrentEnemyState = EnemyState.Alert;
     public int LifePoints = 10;
+    public float HitRate = 0.5f;
 
 	private EnemySight enemySight;                          // Reference to the EnemySight script.
     //private NavMeshAgent nav;                               // Reference to the nav mesh agent.
@@ -43,9 +44,10 @@ public class EnemyAI : MonoBehaviour
 	
 	void Update ()
 	{
-
+        Debug.Log(CurrentEnemyState);
         switch (CurrentEnemyState)
         {
+               
             case EnemyState.Chasing:
                 Chasing();
                 break;
@@ -69,8 +71,13 @@ public class EnemyAI : MonoBehaviour
 	{
         //nav.Stop();
         //mesh.material.color = Color.white;
-		CurrentEnemyState = EnemyState.Attacking;
 
+		CurrentEnemyState = EnemyState.Chasing;
+        Random.seed = (int)Time.time;
+        if (Random.value <= HitRate)
+        {
+            Grid.EventHub.TriggerLifePowerChanged(Grid.GameLogic.GetLife() - 1);
+        }
 
 	}
 	
@@ -90,12 +97,14 @@ public class EnemyAI : MonoBehaviour
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
 
-
+            if (!IsInvoking("Attack"))
+            {
             if (Vector3.Distance(transform.position,  Grid.Player.transform.position) <= AttackRange)
             {
-                changeState(EnemyState.Attacking);
-
+                //changeState(EnemyState.Attacking);
+                InvokeRepeating("Attack", 0.1f, 1f);
             }
+        }
         }
 	}
 	

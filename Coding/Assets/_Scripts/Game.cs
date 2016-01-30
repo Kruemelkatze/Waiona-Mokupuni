@@ -4,7 +4,7 @@ using System.Collections;
 public class Game : MonoBehaviour {
 
 	public int Life = 5;
-
+    private int CurrentLife;
 	public bool PlayerCarryingEarth = false;
 	public bool PlayerCarryingWater = false;
 	public bool PlayerCarryingFire = false;
@@ -23,17 +23,25 @@ public class Game : MonoBehaviour {
 	public int GetLife() {
 		return Life;
 	}
+    
 
 	#endregion
 
 	void Start() {
 		Invoke ("TriggerLifeChangedEvent", 1f);
 		Grid.EventHub.RunOverElement += HandleElementPickup;
+       Grid.EventHub.LifeChanged += ChangeCurrentLife;
 	}
 
-	private void TriggerLifeChangedEvent() {
-		Grid.EventHub.TriggerLifePowerChanged (GetLife());
-	}
+    private void ChangeCurrentLife(int NewLife)
+    {
+        Life = NewLife;
+        Grid.EventHub.TriggerLifePowerBarUpdater(NewLife);
+    }
+    private void TriggerLifeChangedEvent()
+    {
+        Grid.EventHub.TriggerLifePowerChanged(GetLife());
+    }
 
 
 	private void HandleElementPickup(GameObject element) {

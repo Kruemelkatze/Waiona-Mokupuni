@@ -89,7 +89,6 @@ public class Grid : MonoBehaviour
 
         //Player = GameObject.Find("Lokahi");
         Player = SafeFind("Lokahi");
-        
 	}
 
     // this has no purpose other than for developers wondering HTF you use Grid
