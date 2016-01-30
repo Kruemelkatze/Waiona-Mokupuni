@@ -43,8 +43,22 @@ public class CarryItemsManager : MonoBehaviour {
 		}
 	}
 
-	private void AltarReachHandler(GameObject altar) {
-
+	private void AltarReachHandler(GameObject element) {
+		if (element.name == "Erde") {
+			Erde.color = DisabledColor;
+		}
+		if (element.name == "Wasser") {
+			Wasser.color = DisabledColor;
+		}
+		if (element.name == "Feuer") {
+			Feuer.color = DisabledColor;
+		}
+		if (element.name == "Luft") {
+			Luft.color = DisabledColor;
+		}
+		if (element.name == "Energie") {
+			Energie.color = DisabledColor;
+		}
 	}
 
 	void OnDestroy() {
