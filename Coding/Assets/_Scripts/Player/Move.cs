@@ -23,8 +23,8 @@ public class Move : MonoBehaviour {
 
 		//if (cController.isGrounded) {
 
-			var verticalForce = Input.GetAxis ("Vertical");
-			var horizontalForce = Input.GetAxis ("Horizontal");
+			var verticalForce = Input.GetAxisRaw ("Vertical");
+			var horizontalForce = Input.GetAxisRaw ("Horizontal");
 			forceVector = new Vector3 (horizontalForce, 0, verticalForce);
 
 			// this would let the player run in the direction where he is looking
