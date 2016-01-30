@@ -38,8 +38,8 @@ public class CarryItemsManager : MonoBehaviour {
 		if (element.name == "Luft") {
 			Luft.color = Color.white;
 		}
-		if (element.name == "Erde") {
-			Erde.color = Color.white;
+		if (element.name == "Energie") {
+			Energie.color = Color.white;
 		}
 	}
 
