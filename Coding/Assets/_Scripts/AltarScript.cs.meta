@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 2f931c4819826a042b3d8d049cc4c09c
-timeCreated: 1454168680
+timeCreated: 1454189403
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - WaterPrefab: {fileID: 199208, guid: ee25de18aca8c4093ae03d6d5a6795e4, type: 2}
+  - AirPrefab: {fileID: 107822, guid: c1e949aa7d0a949928edb00d6c1d59dc, type: 2}
+  - FirePrefab: {fileID: 187184, guid: 9e77d5ac4f1d8400b9b6bd8b54499102, type: 2}
+  - EarthPrefab: {fileID: 160092, guid: 4d6924a7caf9a40788a6cad9654457c0, type: 2}
+  - EnergyPrefab: {fileID: 112646, guid: a411bb8377ad844999924816d5b0eaa2, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

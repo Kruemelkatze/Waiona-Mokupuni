@@ -4,6 +4,7 @@ using System.Collections;
 public class ElementPickup : MonoBehaviour {
 
 	public AudioClip PickupSound;
+	public Element element;
 
 	void OnTriggerEnter(Collider other) {
 		Grid.EventHub.TriggerRunOverElement (gameObject);

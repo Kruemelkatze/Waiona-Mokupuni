@@ -31,6 +31,7 @@ public class Game : MonoBehaviour {
 		Invoke ("TriggerLifeChangedEvent", 1f);
 		Grid.EventHub.RunOverElement += HandleElementPickup;
        Grid.EventHub.LifeChanged += ChangeCurrentLife;
+		Grid.EventHub.SaveInAltar += HandleSaveInAltar;
 	}
 
     private void ChangeCurrentLife(int NewLife)
@@ -65,6 +66,34 @@ public class Game : MonoBehaviour {
 	void OnDestroy() {
 		Grid.EventHub.RunOverElement -= HandleElementPickup;
 
+	}
+
+	private void HandleSaveInAltar(GameObject element) {
+		if (element.name == "Erde") {
+			AltarElementPresentEarth = true;
+			PlayerCarryingEarth = false;
+		}
+		if (element.name == "Wasser") {
+			AltarElementPresentWater = true;
+			PlayerCarryingWater = false;
+		}
+		if (element.name == "Feuer") {
+			AltarElementPresentFire = true;
+			PlayerCarryingFire = false;
+		}
+		if (element.name == "Luft") {
+			AltarElementPresentAir = true;
+			PlayerCarryingAir = false;
+		}
+		if (element.name == "Energie") {
+			AltarElementPresentEnergy = true;
+			PlayerCarryingEnergy = false;
+		}
+
+		if (AltarElementPresentEarth && AltarElementPresentWater && AltarElementPresentFire && AltarElementPresentAir && AltarElementPresentEnergy) {
+			Debug.Log ("YAY, YOU WON");
+			Grid.EventHub.TriggerLevelEnd ();
+		}
 	}
 
 }
