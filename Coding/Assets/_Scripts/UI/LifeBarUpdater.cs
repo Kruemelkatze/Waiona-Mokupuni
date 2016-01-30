@@ -10,11 +10,14 @@ public class LifeBarUpdater : MonoBehaviour {
 
 	private int lastLifePower = 0;
 
+
+
 	void Awake() {
 		Grid.EventHub.LifeChanged += LifePowerChanged;
 		for (int i = 0; i < Flowers.Length; i++) {
 			FlowerAnimators [i] = Flowers[i].GetComponent<Animator>();
 		}
+		initialized = true;
 	}
 
 	void Start() {
