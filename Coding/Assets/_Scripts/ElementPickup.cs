@@ -3,10 +3,11 @@ using System.Collections;
 
 public class ElementPickup : MonoBehaviour {
 
-	public AudioSource PickupSound;
+	public AudioClip PickupSound;
 
-	void OnCollisionEnter(Collision collision) {
-		Grid.EventHub.TriggerRunOverElement (collision.other.gameObject);
-		PickupSound.Play ();
+	void OnTriggerEnter(Collider other) {
+		Grid.EventHub.TriggerRunOverElement (other.gameObject);
+		Grid.SoundManager.PlaySingle (PickupSound, 1);
+		Destroy (gameObject);
 	}
 }
