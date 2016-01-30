@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     public float MoveSpeed = 5f;
     //public Transform[] patrolWayPoints;                     // An array of transforms for the patrol route.
 	public EnemyState CurrentEnemyState = EnemyState.Alert;
-    public int LifePoints();
+    public int LifePoints = 10;
 
 	private EnemySight enemySight;                          // Reference to the EnemySight script.
     //private NavMeshAgent nav;                               // Reference to the nav mesh agent.
