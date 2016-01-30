@@ -34,8 +34,7 @@ public class AltarScript : MonoBehaviour {
 			case Element.Fire:
 				if (Grid.GameLogic.PlayerCarryingFire) {
 					Debug.Log (correspondingElement + " inserted");
-					Grid.GameLogic.AltarElementPresentFire = true;
-					Grid.GameLogic.PlayerCarryingFire = false;
+					
 					Grid.EventHub.TriggerSaveInAltar (new GameObject{ name = "Feuer" });
 					CreateInstance (FirePrefab);
 				}
@@ -43,8 +42,7 @@ public class AltarScript : MonoBehaviour {
 			case Element.Air:
 				if (Grid.GameLogic.PlayerCarryingAir) {
 					Debug.Log (correspondingElement + " inserted");
-					Grid.GameLogic.AltarElementPresentAir = true;
-					Grid.GameLogic.PlayerCarryingAir = false;
+					
 					Grid.EventHub.TriggerSaveInAltar (new GameObject{ name = "Luft" });
 					CreateInstance (AirPrefab);
 				}
@@ -52,8 +50,7 @@ public class AltarScript : MonoBehaviour {
 			case Element.Water:
 				if (Grid.GameLogic.PlayerCarryingWater) {
 					Debug.Log (correspondingElement + " inserted");
-					Grid.GameLogic.AltarElementPresentWater = true;
-					Grid.GameLogic.PlayerCarryingWater = false;
+					
 					Grid.EventHub.TriggerSaveInAltar (new GameObject{ name = "Wasser" });
 					CreateInstance (WaterPrefab);
 				}
@@ -61,8 +58,7 @@ public class AltarScript : MonoBehaviour {
 			case Element.Earth:
 				if (Grid.GameLogic.PlayerCarryingEarth) {
 					Debug.Log (correspondingElement + " inserted");
-					Grid.GameLogic.AltarElementPresentEarth = true;
-					Grid.GameLogic.PlayerCarryingEarth = false;
+					
 					Grid.EventHub.TriggerSaveInAltar (new GameObject{ name = "Erde" });
 					CreateInstance (EarthPrefab);
 				}
@@ -70,8 +66,7 @@ public class AltarScript : MonoBehaviour {
 			case Element.Energy:
 				if (Grid.GameLogic.PlayerCarryingEnergy) {
 					Debug.Log (correspondingElement + " inserted");
-					Grid.GameLogic.AltarElementPresentEnergy = true;
-					Grid.GameLogic.PlayerCarryingEnergy = false;
+					
 					Grid.EventHub.TriggerSaveInAltar (new GameObject{ name = "Energie" });
 					CreateInstance (EnergyPrefab);
 				}
