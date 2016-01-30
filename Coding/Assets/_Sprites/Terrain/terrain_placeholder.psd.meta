@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 07b315b4bdbdb0b40aa7b760b8bc5bff
-timeCreated: 1454106388
+timeCreated: 1454164996
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: terrain_placeholder_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,26 +31,41 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: 0
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: terrain_placeholder_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1542
+        width: 511
+        height: 506
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -255.5, y: 253}
+        - {x: -255.5, y: -253}
+        - {x: 255.5, y: -253}
+        - {x: 255.5, y: 253}
     outline: []
   spritePackingTag: 
   userData: 
