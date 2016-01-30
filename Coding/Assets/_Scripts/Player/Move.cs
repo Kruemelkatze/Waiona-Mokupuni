@@ -56,6 +56,8 @@ public class Move : MonoBehaviour {
 
 		if (verticalForce == 0 && horizontalForce == 0) {
 			animatorC.SetTrigger ("Idle");
+		} else if (horizontalForce != 0 && verticalForce < 0) {
+			animatorC.SetTrigger ("Walking");
 		}
 
 		if (verticalForce > 0) {
