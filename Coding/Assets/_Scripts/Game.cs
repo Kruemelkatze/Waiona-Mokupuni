@@ -16,12 +16,14 @@ public class Game : MonoBehaviour {
 
 	void Start() {
 
+		Invoke ("TriggerLifeChangedEvent", 1f);
 
 
-		Grid.EventHub.TriggerLifePowerChanged (GetLife());
 
 	}
 
+	private void TriggerLifeChangedEvent() {
 
+	}
 
 }
