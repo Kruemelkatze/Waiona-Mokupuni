@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: 60e73a5cba360514ab17ed2bebf95148
+timeCreated: 1454145786
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: flora_0
+    21300002: flora_1
+    21300004: flora_2
+    21300006: flora_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.43608657, y: 0.5147493}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: flora_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1570
+        width: 272
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 136, y: 150}
+        - {x: 97, y: 228}
+        - {x: -87, y: 228}
+        - {x: -136, y: 179}
+        - {x: -136, y: 147}
+        - {x: -129, y: 146}
+        - {x: -97, y: 162}
+        - {x: -79, y: 172}
+        - {x: -85, y: 165}
+        - {x: -115, y: 126}
+        - {x: -115, y: 106}
+        - {x: -110, y: 101}
+        - {x: -89, y: -83}
+        - {x: -43, y: -228}
+        - {x: 20, y: -228}
+        - {x: 35, y: -221}
+        - {x: 11, y: 19}
+        - {x: 115, y: 38}
+        - {x: 136, y: 75}
+    - name: flora_1
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 1558
+        width: 257
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60.5, y: -86}
+        - {x: 63.5, y: -83}
+        - {x: 128.5, y: -36}
+        - {x: 128.5, y: 98}
+        - {x: 115.5, y: 126}
+        - {x: 84.5, y: 152}
+        - {x: 77.5, y: 189}
+        - {x: 41.5, y: 228}
+        - {x: 27.5, y: 235}
+        - {x: -19.5, y: 235}
+        - {x: -40.5, y: 229}
+        - {x: -62.5, y: 204}
+        - {x: -91.5, y: 159}
+        - {x: -109.5, y: 121}
+        - {x: -127.5, y: 63}
+        - {x: -128.5, y: 50}
+        - {x: -128.5, y: -24}
+        - {x: -86.5, y: -49}
+        - {x: -60.5, y: -44}
+        - {x: -52.5, y: -98}
+        - {x: -53.5, y: -167}
+        - {x: -85.5, y: -205}
+        - {x: -80.5, y: -235}
+        - {x: 29.5, y: -235}
+        - {x: 40.5, y: -221}
+        - {x: 48.5, y: -92}
+        - {x: 55.5, y: -90}
+    - name: flora_2
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 1578
+        width: 262
+        height: 447
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 130, y: -18.5}
+        - {x: 131, y: -12.5}
+        - {x: 131, y: 0.5}
+        - {x: 125, y: 2.5}
+        - {x: 107, y: 131.5}
+        - {x: 74, y: 202.5}
+        - {x: 64, y: 214.5}
+        - {x: -87, y: 214.5}
+        - {x: -123, y: 166.5}
+        - {x: -123, y: 96.5}
+        - {x: -131, y: 66.5}
+        - {x: -131, y: -0.5}
+        - {x: -45, y: -53.5}
+        - {x: -70, y: -184.5}
+        - {x: -76, y: -223.5}
+        - {x: 4, y: -223.5}
+        - {x: 26, y: -157.5}
+        - {x: 25, y: -54.5}
+        - {x: 114, y: -36.5}
+      - - {x: 121, y: 23.5}
+        - {x: 118, y: 21.5}
+        - {x: 118, y: 18.5}
+        - {x: 119, y: 6.5}
+        - {x: 121, y: 5.5}
+        - {x: 129, y: 5.5}
+        - {x: 131, y: 6.5}
+        - {x: 131, y: 13.5}
+        - {x: 125, y: 23.5}
+      - - {x: 92, y: 153.5}
+        - {x: 91, y: 152.5}
+        - {x: 75, y: 96.5}
+        - {x: 75, y: 89.5}
+        - {x: 86, y: 89.5}
+        - {x: 102, y: 99.5}
+        - {x: 102, y: 145.5}
+        - {x: 97, y: 153.5}
+      - - {x: 80, y: 174.5}
+        - {x: 75, y: 174.5}
+        - {x: 75, y: 166.5}
+        - {x: 81, y: 156.5}
+        - {x: 87, y: 154.5}
+        - {x: 94, y: 154.5}
+        - {x: 94, y: 160.5}
+        - {x: 90, y: 167.5}
+      - - {x: -46, y: 223.5}
+        - {x: -48, y: 220.5}
+        - {x: -48, y: 216.5}
+        - {x: -24, y: 211.5}
+        - {x: -2, y: 211.5}
+        - {x: 9, y: 215.5}
+        - {x: 9, y: 223.5}
+      - - {x: 28, y: 218.5}
+        - {x: 31, y: 219.5}
+        - {x: 31, y: 223.5}
+        - {x: 25, y: 223.5}
+        - {x: 25, y: 221.5}
+    - name: flora_3
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 2015
+        width: 53
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
