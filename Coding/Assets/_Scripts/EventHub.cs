@@ -28,6 +28,11 @@ public class EventHub : MonoBehaviour {
 		}
 	}
 
+	public void TriggerLifePowerChanged(int newLifePower){
+		if (LifeChanged != null) {
+			LifeChanged (newLifePower);
+		}
+	}
 
 	#endregion
 #endregion

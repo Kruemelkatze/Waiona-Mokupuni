@@ -14,4 +14,14 @@ public class Game : MonoBehaviour {
 
 
 
+	void Start() {
+
+
+
+		Grid.EventHub.TriggerLifePowerChanged (GetLife());
+
+	}
+
+
+
 }
