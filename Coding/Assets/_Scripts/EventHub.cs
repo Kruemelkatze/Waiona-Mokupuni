@@ -106,9 +106,9 @@ public class EventHub : MonoBehaviour {
 
     public void TriggerFightLoose()
     {
-        if (GameEnd != null)
+		if (FightLoose != null)
         {
-            GameEnd();
+			FightLoose();
         }
     }
 
@@ -119,6 +119,12 @@ public class EventHub : MonoBehaviour {
             FightWin(enemy);
         }
     }
+
+	public void TriggerEnemyStartFight(GameObject enemy) {
+		if (EnemyStartFight != null) {
+			EnemyStartFight (enemy);
+		}
+	}
 	#endregion
 #endregion
 
