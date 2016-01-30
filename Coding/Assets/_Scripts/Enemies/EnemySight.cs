@@ -22,7 +22,7 @@ public class EnemySight : MonoBehaviour
 		nav = GetComponent<NavMeshAgent>();
 		col = GetComponent<SphereCollider>();
 		enemyAI = GetComponent<EnemyAI>();
-		players = GameObject.FindGameObjectsWithTag(Tags.Player);
+		//players = GameObject.FindGameObjectsWithTag(Tags.Player);
 		
 	}
 	
@@ -34,9 +34,9 @@ public class EnemySight : MonoBehaviour
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.CompareTag(Tags.Projectile)) {
+		//if(other.gameObject.CompareTag(Tags.Projectile)) {
 
-		}
+		//}
 
 	}
 
@@ -46,10 +46,10 @@ public class EnemySight : MonoBehaviour
 
 	void OnTriggerStay(Collider other) {
 		// If a player has entered the trigger sphere
-		if(other.gameObject.CompareTag(Tags.Player))
-		{
-			CheckIfObjectIsVisible(other.gameObject);
-		}
+		//if(other.gameObject.CompareTag(Tags.Player))
+		//{
+		//	CheckIfObjectIsVisible(other.gameObject);
+		//}
 	}
 
 
@@ -58,10 +58,10 @@ public class EnemySight : MonoBehaviour
 	void OnTriggerExit (Collider other)
 	{
 		// If the player leaves the trigger zone...
-		if(other.gameObject.CompareTag(Tags.Player)){
+		//if(other.gameObject.CompareTag(Tags.Player)){
 			//  Trigger event that notifies about a player leaving the range
-			enemyAI.PlayerLeftSight(other.gameObject);
-		}
+		//	enemyAI.PlayerLeftSight(other.gameObject);
+		//}
 	}
 	
 	

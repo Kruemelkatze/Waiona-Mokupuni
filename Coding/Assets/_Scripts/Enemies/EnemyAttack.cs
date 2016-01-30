@@ -39,7 +39,7 @@ public class EnemyAttack : MonoBehaviour
 		cooldown = AttackSpeed;
 
 		// The player takes damage.
-		Grid.EventHub.TriggerPlayerDamage(enemyAI.Target);
+		//Grid.EventHub.TriggerPlayerDamage(enemyAI.Target);
 		
 		//AudioSource.PlayClipAtPoint(shotClip, laserShotLight.transform.position);
 	}

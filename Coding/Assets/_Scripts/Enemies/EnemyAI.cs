@@ -32,7 +32,7 @@ public class EnemyAI : MonoBehaviour
 		// Setting up the references.
 		enemySight = GetComponent<EnemySight>();
 		nav = GetComponent<NavMeshAgent>(); 
-		players = GameObject.FindGameObjectsWithTag(Tags.Player);
+		//players = GameObject.FindGameObjectsWithTag(Tags.Player);
 		mesh = GetComponentInChildren<MeshRenderer>();
 	}
 	
@@ -42,11 +42,11 @@ public class EnemyAI : MonoBehaviour
 		if(Target == null) {
 			Patrouling();
 		} else {
-			if(IsTargetInRange() && Grid.Game.IsPlayerAlive(Target))
-				Attack();
+			//if(IsTargetInRange() && Grid.Game.IsPlayerAlive(Target))
+			//	Attack();
 			
-			else if(Grid.Game.IsPlayerAlive(Target))
-				Chasing();
+		//	else if(Grid.Game.IsPlayerAlive(Target))
+			//	Chasing();
 		}
 	}
 	
