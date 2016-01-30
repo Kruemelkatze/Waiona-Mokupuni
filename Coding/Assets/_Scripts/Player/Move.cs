@@ -5,6 +5,7 @@ public class Move : MonoBehaviour {
 
 
 	public float speed = 6.0F;
+	public float rotationSpeed = 2.0F;
 	public float jumpSpeed = 8.0F;
 	public float gravity = 20.0F;
 
@@ -34,12 +35,14 @@ public class Move : MonoBehaviour {
 			// this would let the player run in the direction where he is looking
 			//forceVector = transform.TransformDirection(forceVector);
 			forceVector *= speed;
-			if (Input.GetButton("Jump"))
-				forceVector.y = jumpSpeed;
+			//if (Input.GetButton("Jump"))
+			//	forceVector.y = jumpSpeed;
 			
 		//}
 		forceVector.y -= gravity * Time.deltaTime;
 		cController.Move(forceVector * Time.deltaTime);
+
+		transform.Rotate(Input.GetAxis("HorizontalPan") * Vector3.up * Time.deltaTime * rotationSpeed);
 
 		UpdateAnimation ();
 
