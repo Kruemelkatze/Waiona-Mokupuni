@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ccbe22bcc860353489d78c6493c1420e
-timeCreated: 1454154745
+timeCreated: 1454155549
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,13 +8,13 @@ TextureImporter:
     21300002: player idle left
     21300004: player idle right
     21300006: player_placeholder_3
-    21300008: player_placeholder_4
-    21300010: player_placeholder_5
-    21300012: player_placeholder_6
+    21300008: walk center
+    21300010: walk 1
+    21300012: walk 2
     21300014: player_placeholder_7
-    21300016: player_placeholder_8
-    21300018: player_placeholder_9
-    21300020: player_placeholder_10
+    21300016: upwards center
+    21300018: upwards 1
+    21300020: upwards 2
     21300022: player_placeholder_11
     21300024: player_placeholder_12
     21300026: player_placeholder_13
@@ -126,7 +126,7 @@ TextureImporter:
         - {x: -256, y: -256}
         - {x: 256, y: -256}
         - {x: 256, y: 256}
-    - name: player_placeholder_4
+    - name: walk center
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +141,7 @@ TextureImporter:
         - {x: -256, y: -256}
         - {x: 256, y: -256}
         - {x: 256, y: 256}
-    - name: player_placeholder_5
+    - name: walk 1
       rect:
         serializedVersion: 2
         x: 512
@@ -156,7 +156,7 @@ TextureImporter:
         - {x: -256, y: -256}
         - {x: 256, y: -256}
         - {x: 256, y: 256}
-    - name: player_placeholder_6
+    - name: walk 2
       rect:
         serializedVersion: 2
         x: 1024
@@ -186,7 +186,7 @@ TextureImporter:
         - {x: -256, y: -256}
         - {x: 256, y: -256}
         - {x: 256, y: 256}
-    - name: player_placeholder_8
+    - name: upwards center
       rect:
         serializedVersion: 2
         x: 0
@@ -201,7 +201,7 @@ TextureImporter:
         - {x: -256, y: -256}
         - {x: 256, y: -256}
         - {x: 256, y: 256}
-    - name: player_placeholder_9
+    - name: upwards 1
       rect:
         serializedVersion: 2
         x: 512
@@ -216,7 +216,7 @@ TextureImporter:
         - {x: -256, y: -256}
         - {x: 256, y: -256}
         - {x: 256, y: 256}
-    - name: player_placeholder_10
+    - name: upwards 2
       rect:
         serializedVersion: 2
         x: 1024

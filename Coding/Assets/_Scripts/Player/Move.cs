@@ -12,10 +12,14 @@ public class Move : MonoBehaviour {
 
 	private CharacterController cController;
 	private Vector3 forceVector;
+	private Animator animatorC;
+	private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
 	void Start () {
 		cController = GetComponent<CharacterController> ();
+		animatorC = GetComponent<Animator> ();
+		spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
 	}
 
 	void FixedUpdate() {
@@ -37,6 +41,7 @@ public class Move : MonoBehaviour {
 		forceVector.y -= gravity * Time.deltaTime;
 		cController.Move(forceVector * Time.deltaTime);
 
+		UpdateAnimation ();
 
 	}
 	
@@ -44,4 +49,29 @@ public class Move : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	private void UpdateAnimation() {
+		var verticalForce = Input.GetAxisRaw ("Vertical");
+		var horizontalForce = Input.GetAxisRaw ("Horizontal");
+
+		if (verticalForce == 0 && horizontalForce == 0) {
+			animatorC.SetTrigger ("Idle");
+		}
+
+		if (verticalForce > 0) {
+			animatorC.SetTrigger ("Upwards");
+		} 
+		if (verticalForce < 0) {
+			animatorC.SetTrigger ("Walking");
+		}
+		if (horizontalForce > 0) {
+			spriteRenderer.flipX = false;
+		}
+			
+		if (horizontalForce < 0) {
+			spriteRenderer.flipX = true;
+		}
+
+	}
+
 }
