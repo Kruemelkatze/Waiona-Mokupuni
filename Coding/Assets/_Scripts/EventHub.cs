@@ -12,6 +12,8 @@ public class EventHub : MonoBehaviour {
 	#region
 	public event VoidEvent LevelStart;
 	public event VoidEvent GameEnd;
+	// Parameter is the new life points
+	public event IntegerParamEvent LifeChanged; 
 
 	#region Triggers
 	public void TriggerLevelStart(){
