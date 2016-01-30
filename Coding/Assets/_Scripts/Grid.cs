@@ -53,7 +53,7 @@ public class Grid : MonoBehaviour
 	public static EventHub EventHub;
 	public static Game GameLogic;
 	public static SoundManager SoundManager;
-
+    public static GameObject Player;
     // when the program launches, Grid will check that all the needed elements are in place
     // that's exactly what you do in the static constructor here:
 //    static Grid()
@@ -87,6 +87,9 @@ public class Grid : MonoBehaviour
 		g = SafeFind ("SoundManager");
 		SoundManager = (SoundManager)SafeComponent (g, "SoundManager");
 
+        //Player = GameObject.Find("Lokahi");
+        Player = SafeFind("Lokahi");
+        
 	}
 
     // this has no purpose other than for developers wondering HTF you use Grid
@@ -102,8 +105,10 @@ public class Grid : MonoBehaviour
     // when Grid wakes up, it checks everything is in place...
     public GameObject SafeFind(string s)
     {
+     
+
 	    GameObject g = GameObject.Find(s);
-	    if ( g == null ) bigProblem("The '" +s+ "' game object is not in this scene.");
+        if (g == null) bigProblem("The '" + s + "' game object is not in this scene.");
 	    return g;
     }
 
