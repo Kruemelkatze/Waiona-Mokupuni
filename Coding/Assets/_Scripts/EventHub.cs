@@ -17,6 +17,7 @@ public class EventHub : MonoBehaviour {
 
 	// Parameter is the new life points
 	public event IntegerParamEvent LifeChanged;
+    public event IntegerParamEvent LifeChangedUpdater;
 
     //Parameter is the Hit Strength (0) is Miss
     public event IntegerParamEvent PlayerHit;
@@ -54,11 +55,20 @@ public class EventHub : MonoBehaviour {
 		}
 	}
 
-	public void TriggerLifePowerChanged(int newLifePower){
-		if (LifeChanged != null) {
-			LifeChanged (newLifePower);
+	public void TriggerLifePowerBarUpdater(int newLifePower){
+        if (LifeChangedUpdater != null)
+        {
+            LifeChangedUpdater(newLifePower);
 		}
 	}
+
+    public void TriggerLifePowerChanged(int newLifePower)
+    {
+        if (LifeChanged != null)
+        {
+            LifeChanged(newLifePower);
+        }
+    }
 
     public void TriggerPlayerHit(int HitStrength)
     {
