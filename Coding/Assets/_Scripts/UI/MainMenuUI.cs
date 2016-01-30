@@ -7,7 +7,7 @@ public class MainMenuUI : MonoBehaviour {
 	
 
 	public void OnPlayClick() {
-		SceneManager.LoadScene ("Story");
+		Invoke("LoadStory", 0.5f);
 	}
 
 
@@ -16,6 +16,9 @@ public class MainMenuUI : MonoBehaviour {
 		Application.Quit ();
 	}
 
+	private void LoadStory() {
+		SceneManager.LoadScene ("Story");
+	}
 
 
 }
