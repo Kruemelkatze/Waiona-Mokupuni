@@ -12,7 +12,7 @@ public class MainMenuUI : MonoBehaviour {
 
 
 
-	public static void OnExitClick() {
+	public void OnExitClick() {
 		Application.Quit ();
 	}
 
