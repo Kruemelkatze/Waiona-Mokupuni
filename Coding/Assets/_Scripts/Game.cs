@@ -18,7 +18,9 @@ public class Game : MonoBehaviour {
 	public bool AltarElementPresentAir = false;
 	public bool AltarElementPresentEnergy = false;
 
-	public Transform Spawnpoint;
+	public AudioClip WinClip;
+	public AudioClip WinMusic;
+
 
 	void Start() {
 		CurrentLife = MaxLife;
@@ -116,6 +118,9 @@ public class Game : MonoBehaviour {
 		if (Grid.WinUI != null) {
 			Grid.WinUI.SetActive (true);
 		}
+		Grid.SoundManager.SetCurrentTheme(WinMusic, 1f);
+
+		Grid.SoundManager.PlaySingle (WinClip, 1f);
 	}
 
 
