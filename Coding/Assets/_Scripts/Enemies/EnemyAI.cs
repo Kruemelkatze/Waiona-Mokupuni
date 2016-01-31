@@ -80,6 +80,7 @@ public class EnemyAI : MonoBehaviour
 	
 	void Attack ()
 	{
+		Grid.EventHub.TriggerEnemyAttack ();
         //nav.Stop();
         //mesh.material.color = Color.white;
 
