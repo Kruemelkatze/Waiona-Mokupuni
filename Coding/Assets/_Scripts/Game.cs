@@ -98,7 +98,7 @@ public class Game : MonoBehaviour {
 		Grid.Player.transform.position = Grid.SpawnPoint.transform.position;
 		Grid.Player.transform.rotation = Grid.SpawnPoint.transform.rotation;
 
-		Invoke ("AfterRespawn", 1.5f);
+		Invoke ("AfterRespawn", 1.1f);
 	}
 
 	private void AfterRespawn() {
