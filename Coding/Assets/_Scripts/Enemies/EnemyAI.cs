@@ -43,6 +43,8 @@ public class EnemyAI : MonoBehaviour
         ////players = GameObject.FindGameObjectsWithTag(Tags.Player);
         //mesh = GetComponentInChildren<MeshRenderer>();
 	}
+
+   
     private void onEnemyHit(GameObject unused, int HitStrength)
     {
         if (CurrentEnemyState == EnemyState.Attacking || CurrentEnemyState == EnemyState.Chasing)
@@ -117,9 +119,10 @@ public class EnemyAI : MonoBehaviour
             if (Vector3.Distance(transform.position, Grid.Player.transform.position) <= AttackRange)
             {
                 changeState(EnemyState.Attacking);
-                Grid.EventHub.TriggerEnemyStartFight(this.gameObject);
                 if (!IsInvoking("Attack"))
                 {
+                    Grid.EventHub.TriggerEnemyStartFight(this.gameObject);
+
                     Invoke("Attack", 1f);
                 }
             }
