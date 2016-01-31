@@ -33,6 +33,7 @@ public class FightControl : MonoBehaviour
         currentState = FightState.Idle;
         cAnimator = GetComponentInParent<Animator>();
         Grid.EventHub.EnemyStartFight += onEnemyStartFight;
+        Grid.EventHub.FightWin += onFightWin;
     }
     private void onEnemyStartFight(GameObject unused)
     {
@@ -272,4 +273,9 @@ public class FightControl : MonoBehaviour
         return accordKeys[Random.Range(0, 3)];
     }
 
+    private void onFightWin(GameObject obj)
+    {
+        currentState = FightState.Idle;
+
+    }
 }
