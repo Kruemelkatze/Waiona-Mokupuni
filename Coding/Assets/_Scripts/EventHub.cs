@@ -39,6 +39,9 @@ public class EventHub : MonoBehaviour {
     //parameter is the gameobject element to run over
     public event GameObjectParamEvent RunOverElement;
 
+	//parameter is the gameobject health pickup ran over
+	public event GameObjectParamEvent RunOverHealthPickup;
+
     //parameter is the altar gameobject to get near
     public event GameObjectParamEvent SaveInAltar;
 
@@ -62,11 +65,11 @@ public class EventHub : MonoBehaviour {
 		}
 	}
 
-    public void TriggerLifePowerChanged(int newLifePower)
+    public void TriggerLifeChanged(int delta)
     {
         if (LifeChanged != null)
         {
-            LifeChanged(newLifePower);
+            LifeChanged(delta);
         }
     }
 
@@ -93,6 +96,14 @@ public class EventHub : MonoBehaviour {
             RunOverElement(element);
         }
     }
+
+	public void TriggerRunOverHealthPickup(GameObject pickup)
+	{
+		if (RunOverHealthPickup != null)
+		{
+			RunOverHealthPickup(pickup);
+		}
+	}
 
     public void TriggerSaveInAltar(GameObject altar)
     {

@@ -76,7 +76,7 @@ public class EnemyAI : MonoBehaviour
         Random.seed = (int)Time.time;
         if (Random.value <= HitRate)
         {
-            Grid.EventHub.TriggerLifePowerChanged(Grid.GameLogic.GetLife() - 1);
+			Grid.EventHub.TriggerLifeChanged(-1);
         }
 
 	}

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Game : MonoBehaviour {
 
-	public int Life = 5;
-    private int CurrentLife;
+	public int MaxLife = 5;
+    public int CurrentLife;
 	public bool PlayerCarryingEarth = false;
 	public bool PlayerCarryingWater = false;
 	public bool PlayerCarryingFire = false;
@@ -19,31 +19,19 @@ public class Game : MonoBehaviour {
 
 	public Transform Spawnpoint;
 
-	#region Life Stuff
-	public int GetLife() {
-		return Life;
-	}
-    
-
-	#endregion
-
 	void Start() {
-		Invoke ("TriggerLifeChangedEvent", 1f);
+		CurrentLife = MaxLife;
+
 		Grid.EventHub.RunOverElement += HandleElementPickup;
-       Grid.EventHub.LifeChanged += ChangeCurrentLife;
+        Grid.EventHub.LifeChanged += ChangeCurrentLife;
 		Grid.EventHub.SaveInAltar += HandleSaveInAltar;
 	}
 
-    private void ChangeCurrentLife(int NewLife)
+    private void ChangeCurrentLife(int deltaLife)
     {
-        Life = NewLife;
-        Grid.EventHub.TriggerLifePowerBarUpdater(NewLife);
+        CurrentLife += deltaLife;
+		Grid.EventHub.TriggerLifePowerBarUpdater(CurrentLife);
     }
-    private void TriggerLifeChangedEvent()
-    {
-        Grid.EventHub.TriggerLifePowerChanged(GetLife());
-    }
-
 
 	private void HandleElementPickup(GameObject element) {
 		if (element.name == "Erde") {

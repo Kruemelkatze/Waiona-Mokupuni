@@ -7,38 +7,41 @@ public class LifeBarUpdater : MonoBehaviour {
 
 	public GameObject[] Flowers;
 	private Animator[] FlowerAnimators = new Animator[5];
+	public int lastLifeValue;
 
-	private int lastLifePower = 0;
-
-
+	void Start() {
+		lastLifeValue = Grid.GameLogic.MaxLife;
+	}
 
 	void Awake() {
-        Grid.EventHub.LifeChangedUpdater += LifePowerChanged;
+		Grid.EventHub.LifeChangedUpdater += UpdateLifeBar;
 		for (int i = 0; i < Flowers.Length; i++) {
 			FlowerAnimators [i] = Flowers[i].GetComponent<Animator>();
+			FlowerAnimators [i].SetTrigger ("FlowerBloom");
 		}
 		initialized = true;
 	}
 
-	void Start() {
-		
-		lastLifePower = Grid.GameLogic.GetLife ();
-
-	}
-
-	public void LifePowerChanged(int lifePoints) {
+	public void UpdateLifeBar(int lifePoints) {
 		if (!initialized) {
 			Debug.LogError ("Tried to execute lifechanged event, before lifemanager initialized");
 			return;
 		}
-		for (int i = 0; i < Flowers.Length; i++) {
-			FlowerAnimators [i].SetTrigger(i < lifePoints ? "FlowerBloom" : "FlowerShrink");
+
+		if (lifePoints >= 0 && lifePoints < lastLifeValue) {
+			for (int i = lifePoints; i <  lastLifeValue; i++) {
+				FlowerAnimators [i].SetTrigger("FlowerShrink");
+			}
+		} else if (lifePoints <= Flowers.Length && lifePoints > lastLifeValue){
+			for (int i = lastLifeValue; i < lifePoints; i++) {
+				FlowerAnimators [i].SetTrigger("FlowerBloom");
+			}
 		}
-		lastLifePower = lifePoints;
+		lastLifeValue = lifePoints;
 	}
 
 	void OnDestroy() {
-		Grid.EventHub.LifeChanged -= LifePowerChanged;
+		Grid.EventHub.LifeChanged -= UpdateLifeBar;
 	}
 
 }
