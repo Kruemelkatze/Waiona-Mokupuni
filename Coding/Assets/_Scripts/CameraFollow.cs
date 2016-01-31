@@ -43,9 +43,15 @@ public class CameraFollow : MonoBehaviour
             Debug.Log("Please assign a camera to the ThirdPersonCamera script.");
             enabled = false;
         }
+
+
+
         if (Target == null)
         {
-            Debug.Log("Please assign a target to the camera that has a CameraFollow script attached.");
+			Target = GameObject.Find ("Lokahi").transform;
+			if (Target == null) {
+				Debug.Log ("Please assign a target to the camera that has a CameraFollow script attached.");
+			}
         }
     }
 
