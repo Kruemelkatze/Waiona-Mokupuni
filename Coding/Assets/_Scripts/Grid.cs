@@ -55,6 +55,9 @@ public class Grid : MonoBehaviour
 	public static SoundManager SoundManager;
     public static GameObject Player;
 	public static Light DirectionalLight;
+	public static GameObject SpawnPoint;
+	
+
     // when the program launches, Grid will check that all the needed elements are in place
     // that's exactly what you do in the static constructor here:
 //    static Grid()
@@ -90,6 +93,8 @@ public class Grid : MonoBehaviour
 
         //Player = GameObject.Find("Lokahi");
         Player = SafeFind("Lokahi");
+
+		SpawnPoint = SafeFind("Spawnpoint");
 
 		g = SafeFind ("Directional Light");
 		DirectionalLight = (Light)SafeComponent (g, "Light");

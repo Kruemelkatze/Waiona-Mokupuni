@@ -25,6 +25,7 @@ public class Game : MonoBehaviour {
 		Grid.EventHub.RunOverElement += HandleElementPickup;
         Grid.EventHub.LifeChanged += ChangeCurrentLife;
 		Grid.EventHub.SaveInAltar += HandleSaveInAltar;
+		Grid.EventHub.FightLoose += HandleFightLoose;
 	}
 
     private void ChangeCurrentLife(int deltaLife)
@@ -86,6 +87,19 @@ public class Game : MonoBehaviour {
 			Debug.Log ("YAY, YOU WON");
 			Grid.EventHub.TriggerLevelEnd ();
 		}
+	}
+
+	private void HandleFightLoose() {
+		Invoke("Respawn", 1f);
+	}
+
+	private void Respawn() {
+		CurrentLife = MaxLife;
+
+		Grid.Player.transform.position = Grid.SpawnPoint.transform.position;
+		Grid.Player.transform.rotation = Grid.SpawnPoint.transform.rotation;
+
+		Grid.EventHub.TriggerLifeChanged (CurrentLife);
 	}
 
 }
