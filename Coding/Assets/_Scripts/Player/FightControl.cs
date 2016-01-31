@@ -8,6 +8,7 @@ public class FightControl : MonoBehaviour
     public AudioClip Chord2;
     public AudioClip Chord3;
     public AudioClip Chord4;
+    public AudioClip ChordFail;
 
     public FightState currentState;
     private string[] accordKeys = { "Fire1", "Fire2", "Fire3", "Jump" };
@@ -50,6 +51,7 @@ public class FightControl : MonoBehaviour
                 currentState = FightState.Delay;
                 if (lastKeyCorrect)
                 {
+                    Grid.EventHub.TriggerEnemyHit(this.gameObject, 1);
                     Invoke("resetToFight", 1f);
                 }
                 else
@@ -107,24 +109,46 @@ public class FightControl : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            checkButton1();
-
-            PlayChord1();
+           checkButton1();
+           if (lastKeyCorrect)
+           {
+               PlayChord1();
+           }
+           else
+           {
+               PlayChordFail();
+           }
             currentState = FightState.ChordPlayingInFight;
         }
 
             if (Input.GetButtonDown("Fire2"))
             {
                 checkButton2();
-                PlayChord2();
+                 if (lastKeyCorrect)
+           {
+               PlayChord2();
+           }
+                 else
+                
+           {
+               PlayChordFail();
+           }
                 currentState = FightState.ChordPlayingInFight;
 
             }
 
                 if (Input.GetButtonDown("Fire3"))
                 {
+                   
                     checkButton3();
-                    PlayChord3();
+                    if (lastKeyCorrect)
+                    {
+                        PlayChord3();
+                    }
+                    else
+                    {
+                        PlayChordFail();
+                    }
                     currentState = FightState.ChordPlayingInFight;
 
                 }
@@ -132,7 +156,14 @@ public class FightControl : MonoBehaviour
                     if (Input.GetButtonDown("Jump"))
                     {
                         checkButton4();
-                        PlayChord4();
+                        if (lastKeyCorrect)
+                        {
+                            PlayChord4();
+                        }
+                        else
+                        {
+                            PlayChordFail();
+                        }
                         currentState = FightState.ChordPlayingInFight;
 
                     }
@@ -220,6 +251,10 @@ public class FightControl : MonoBehaviour
         Grid.SoundManager.PlaySingle(Chord4);
     }
 
+    private void PlayChordFail()
+    {
+        Grid.SoundManager.PlaySingle(ChordFail);
+    }
     private string GenerateNextAccord()
     {
         return accordKeys[Random.Range(0, 3)];
