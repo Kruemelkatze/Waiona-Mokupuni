@@ -276,6 +276,8 @@ public class FightControl : MonoBehaviour
     private void onFightWin(GameObject obj)
     {
         currentState = FightState.Idle;
+        cAnimator.SetTrigger("Abort");
+        Grid.EventHub.EnemyStartFight += onEnemyStartFight;
 
     }
 }
