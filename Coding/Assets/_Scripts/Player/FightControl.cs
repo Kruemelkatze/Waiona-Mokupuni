@@ -9,6 +9,7 @@ public class FightControl : MonoBehaviour
     public AudioClip Chord3;
     public AudioClip Chord4;
     public AudioClip ChordFail;
+    private Animator cAnimator;
 
     public FightState currentState;
     private string[] accordKeys = { "Fire1", "Fire2", "Fire3", "Jump" };
@@ -30,8 +31,15 @@ public class FightControl : MonoBehaviour
     void Start()
     {
         currentState = FightState.Idle;
+        cAnimator = GetComponentInParent<Animator>();
+        Grid.EventHub.EnemyStartFight += onEnemyStartFight;
     }
-
+    private void onEnemyStartFight(GameObject unused)
+    {
+        
+        currentState = FightState.Fight;
+        Grid.EventHub.EnemyStartFight -= onEnemyStartFight;
+    }
     // Update is called once per frame 	
     void Update()
     {
@@ -41,6 +49,7 @@ public class FightControl : MonoBehaviour
                 break;
             case FightState.WrongButtonPlayed:
                 currentState = FightState.Delay;
+                cAnimator.SetTrigger("Abort");
                 Invoke("resetToFight", 3f);
                 break;
             case FightState.ChordPlayingInIdle:
@@ -52,6 +61,7 @@ public class FightControl : MonoBehaviour
                 if (lastKeyCorrect)
                 {
                     Grid.EventHub.TriggerEnemyHit(this.gameObject, 1);
+                    cAnimator.SetTrigger("Attack");
                     Invoke("resetToFight", 1f);
                 }
                 else
@@ -65,6 +75,7 @@ public class FightControl : MonoBehaviour
 
             case FightState.Fight:
                 nextKey = GenerateNextAccord();
+                cAnimator.SetTrigger(nextKey);
                 currentState = FightState.WaitForPlayerInput;
                 break;
             case FightState.WaitForPlayerInput:
@@ -189,6 +200,7 @@ public class FightControl : MonoBehaviour
         }
         else
         {
+
             currentState = FightState.WrongButtonPlayed;
             nextKey = "";
         }
