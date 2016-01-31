@@ -33,6 +33,13 @@ public class Game : MonoBehaviour {
 		Grid.WinUI.SetActive (false);
 	}
 
+	void Update() {
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			SceneManager.LoadScene ("Title");
+		}
+	}
+
+
     private void ChangeCurrentLife(int deltaLife)
     {
         CurrentLife += deltaLife;
