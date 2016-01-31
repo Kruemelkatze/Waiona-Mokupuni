@@ -39,6 +39,7 @@ public class Move : MonoBehaviour {
 		float curSpeed = speed * Input.GetAxis("Vertical");
 		cController.SimpleMove(forward * curSpeed);
 
+	
 		transform.Rotate(Input.GetAxis("HorizontalPan") * Vector3.up * Time.deltaTime * rotationSpeed);
 
 		UpdateAnimation ();
