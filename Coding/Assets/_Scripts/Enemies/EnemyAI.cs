@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 	public EnemyState CurrentEnemyState = EnemyState.Alert;
     public int LifePoints = 10;
     public float HitRate = 0.5f;
-
+    public AudioClip attackSound;
 	private EnemySight enemySight;                          // Reference to the EnemySight script.
     //private NavMeshAgent nav;                               // Reference to the nav mesh agent.
     //private GameObject[] players;                               // Reference to the player's transform.
@@ -43,27 +43,19 @@ public class EnemyAI : MonoBehaviour
 	
 	
 	void Update ()
-	{
-        Debug.Log(CurrentEnemyState);
+    {
         switch (CurrentEnemyState)
         {
-               
+            case EnemyState.Attacking:
             case EnemyState.Chasing:
                 Chasing();
+                
                 break;
-            case EnemyState.Attacking:
-                Attack();
+           
+            case EnemyState.Calm:
                 break;
         }   
-        //if(Target == null) {
-        //    Patrouling();
-        //} else {
-        //    //if(IsTargetInRange() && Grid.Game.IsPlayerAlive(Target))
-        //    //	Attack();
-			
-        ////	else if(Grid.Game.IsPlayerAlive(Target))
-        //    //	Chasing();
-        //}
+
 	}
 	
 	
@@ -76,6 +68,7 @@ public class EnemyAI : MonoBehaviour
         Random.seed = (int)Time.time;
         if (Random.value <= HitRate)
         {
+            Grid.SoundManager.PlaySingle(attackSound);
 			Grid.EventHub.TriggerLifeChanged(-1);
         }
 
@@ -88,7 +81,6 @@ public class EnemyAI : MonoBehaviour
 		
         //// Create a vector from the enemy to the last sighting of the player.
         //Vector3 sightingDeltaPos = enemySight.LastSightedPlayerPosition - transform.position;
-
         transform.LookAt(Grid.Player.transform);
 
         if (Vector3.Distance(transform.position, Grid.Player.transform.position) > AttackRange)
@@ -97,15 +89,16 @@ public class EnemyAI : MonoBehaviour
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
 
-            if (!IsInvoking("Attack"))
-            {
+           
             if (Vector3.Distance(transform.position,  Grid.Player.transform.position) <= AttackRange)
             {
-                //changeState(EnemyState.Attacking);
-                InvokeRepeating("Attack", 0.1f, 1f);
+                changeState(EnemyState.Attacking);
+               if(!IsInvoking("Attack")) { 
+                   Invoke("Attack", 1f); 
+               }
             }
         }
-        }
+        
 	}
 	
 	
