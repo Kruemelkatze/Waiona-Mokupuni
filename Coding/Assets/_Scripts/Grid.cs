@@ -94,7 +94,7 @@ public class Grid : MonoBehaviour
         //Player = GameObject.Find("Lokahi");
         Player = SafeFind("Lokahi");
 
-		SpawnPoint = SafeFind("Spawnpoint");
+		SpawnPoint = SafeFind("SpawnPoint");
 
 		g = SafeFind ("Directional Light");
 		DirectionalLight = (Light)SafeComponent (g, "Light");

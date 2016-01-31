@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
 	
 	void Update ()
 	{
-        Debug.Log(CurrentEnemyState);
+        //Debug.Log(CurrentEnemyState);
         switch (CurrentEnemyState)
         {
                
