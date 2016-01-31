@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour {
 
@@ -21,11 +22,12 @@ public class Game : MonoBehaviour {
 
 	void Start() {
 		CurrentLife = MaxLife;
-
 		Grid.EventHub.RunOverElement += HandleElementPickup;
-        Grid.EventHub.LifeChanged += ChangeCurrentLife;
+		Grid.EventHub.LifeChanged += ChangeCurrentLife;
 		Grid.EventHub.SaveInAltar += HandleSaveInAltar;
 		Grid.EventHub.FightLoose += HandleFightLoose;
+		Grid.EventHub.GameEnd += HandleGameEnd;
+		Grid.WinUI.SetActive (false);
 	}
 
     private void ChangeCurrentLife(int deltaLife)
@@ -58,7 +60,10 @@ public class Game : MonoBehaviour {
 
 	void OnDestroy() {
 		Grid.EventHub.RunOverElement -= HandleElementPickup;
-
+		Grid.EventHub.LifeChanged -= ChangeCurrentLife;
+		Grid.EventHub.SaveInAltar -= HandleSaveInAltar;
+		Grid.EventHub.FightLoose -= HandleFightLoose;
+		Grid.EventHub.GameEnd -= HandleGameEnd;
 	}
 
 	private void HandleSaveInAltar(GameObject element) {
@@ -88,6 +93,17 @@ public class Game : MonoBehaviour {
 			Grid.EventHub.TriggerLevelEnd ();
 		}
 	}
+
+	private void HandleGameEnd() {
+		Invoke ("ShowWinScreen", 3);
+	}
+
+	private void ShowWinScreen() {
+		if (Grid.WinUI != null) {
+			Grid.WinUI.SetActive (true);
+		}
+	}
+
 
 	private void HandleFightLoose() {
 		Invoke("Respawn", 1f);

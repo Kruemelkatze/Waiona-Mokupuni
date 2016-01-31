@@ -56,6 +56,7 @@ public class Grid : MonoBehaviour
     public static GameObject Player;
 	public static Light DirectionalLight;
 	public static GameObject SpawnPoint;
+	public static GameObject WinUI;
 	
 
     // when the program launches, Grid will check that all the needed elements are in place
@@ -98,6 +99,8 @@ public class Grid : MonoBehaviour
 
 		g = SafeFind ("Directional Light");
 		DirectionalLight = (Light)SafeComponent (g, "Light");
+
+		WinUI = SafeFind ("WinUI");
 	}
 
     // this has no purpose other than for developers wondering HTF you use Grid
