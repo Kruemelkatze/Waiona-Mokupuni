@@ -103,7 +103,7 @@ public class Game : MonoBehaviour {
 
 	private void AfterRespawn() {
 		CurrentLife = MaxLife;
-		Grid.EventHub.TriggerLifeChanged (CurrentLife);
+		Grid.EventHub.TriggerLifePowerBarUpdater (CurrentLife);
 	}
 
 }
