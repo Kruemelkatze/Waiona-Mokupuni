@@ -69,7 +69,6 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Attacking:
             case EnemyState.Chasing:
                 Chasing();
-                
                 break;
            
             case EnemyState.Calm:
@@ -99,7 +98,7 @@ public class EnemyAI : MonoBehaviour
 	void Chasing ()
 	{
                 //mesh.material.color = Color.yellow;
-        if (LifePoints >= 0)
+        if (LifePoints > 0)
         {
             //// Create a vector from the enemy to the last sighting of the player.
             //Vector3 sightingDeltaPos = enemySight.LastSightedPlayerPosition - transform.position;
@@ -117,6 +116,7 @@ public class EnemyAI : MonoBehaviour
             if (Vector3.Distance(transform.position, Grid.Player.transform.position) <= AttackRange)
             {
                 changeState(EnemyState.Attacking);
+                Grid.EventHub.TriggerEnemyStartFight(this.gameObject);
                 if (!IsInvoking("Attack"))
                 {
                     Invoke("Attack", 1f);
