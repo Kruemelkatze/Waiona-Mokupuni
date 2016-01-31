@@ -32,6 +32,10 @@ public class Game : MonoBehaviour {
     {
         CurrentLife += deltaLife;
 		Grid.EventHub.TriggerLifePowerBarUpdater(CurrentLife);
+
+		if (CurrentLife <= 0) {
+			Grid.EventHub.TriggerFightLoose ();
+		}
     }
 
 	private void HandleElementPickup(GameObject element) {
