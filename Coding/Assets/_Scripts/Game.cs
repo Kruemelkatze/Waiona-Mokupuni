@@ -110,12 +110,16 @@ public class Game : MonoBehaviour {
 	}
 
 	private void Respawn() {
-		CurrentLife = MaxLife;
 
 		Grid.Player.transform.position = Grid.SpawnPoint.transform.position;
 		Grid.Player.transform.rotation = Grid.SpawnPoint.transform.rotation;
 
-		Grid.EventHub.TriggerLifeChanged (CurrentLife);
+		Invoke ("AfterRespawn", 1.1f);
+	}
+
+	private void AfterRespawn() {
+		CurrentLife = MaxLife;
+		Grid.EventHub.TriggerLifePowerBarUpdater (CurrentLife);
 	}
 
 }
