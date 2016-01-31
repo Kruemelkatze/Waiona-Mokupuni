@@ -33,6 +33,8 @@ public class LifeBarUpdater : MonoBehaviour {
 				FlowerAnimators [i].SetTrigger("FlowerShrink");
 			}
 		} else if (lifePoints <= Flowers.Length && lifePoints > lastLifeValue){
+			if (lastLifeValue < 0)
+				lastLifeValue = 0;
 			for (int i = lastLifeValue; i < lifePoints; i++) {
 				FlowerAnimators [i].SetTrigger("FlowerBloom");
 			}
