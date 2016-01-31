@@ -29,6 +29,7 @@ public class Game : MonoBehaviour {
 		Grid.EventHub.SaveInAltar += HandleSaveInAltar;
 		Grid.EventHub.FightLoose += HandleFightLoose;
 		Grid.EventHub.GameEnd += HandleGameEnd;
+		Grid.EventHub.EnemyAttack += HandleEnemyAttack;
 		Grid.WinUI.SetActive (false);
 	}
 
@@ -66,6 +67,19 @@ public class Game : MonoBehaviour {
 		Grid.EventHub.SaveInAltar -= HandleSaveInAltar;
 		Grid.EventHub.FightLoose -= HandleFightLoose;
 		Grid.EventHub.GameEnd -= HandleGameEnd;
+		Grid.EventHub.EnemyAttack -= HandleEnemyAttack;
+	}
+
+	private void HandleEnemyAttack() {
+		if (IsInvoking ("ResetFight")) {
+			CancelInvoke ("ResetFight");
+		}
+		Invoke ("ResetFight", 5);
+
+	}
+
+	private void ResetFight() {
+		Grid.EventHub.TriggerFightWin(null);
 	}
 
 	private void HandleSaveInAltar(GameObject element) {

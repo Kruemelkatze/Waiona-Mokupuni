@@ -45,7 +45,15 @@ public class EventHub : MonoBehaviour {
     //parameter is the altar gameobject to get near
     public event GameObjectParamEvent SaveInAltar;
 
+	public event VoidEvent EnemyAttack;
+
    	#region Triggers
+	public void TriggerEnemyAttack() {
+		if (EnemyAttack != null) {
+			EnemyAttack ();
+		}
+	}
+
 	public void TriggerLevelStart(){
 		if (LevelStart != null) {
 			LevelStart ();
